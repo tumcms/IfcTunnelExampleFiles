@@ -16,30 +16,38 @@ FILE_NAME(
 	'OpenInfraPlatform IFC Tunnel generator',
 	'reference file created for the IFC Tunnel specification');
 /* NOTE schema name to be replaced with 'IFC4' after the final release  ------------------------ */
-FILE_SCHEMA(('IFC5'));
+FILE_SCHEMA(('IFC4'));
 ENDSEC;
 
 DATA;
 #1=IFCORGANIZATION($,'TUM',$,$,$);
 #2=IFCAPPLICATION(#1,'2014','BlueIfcTunnelGenerator','BlueIfcTunnelGenerator');
-#3=IFCPROJECT($,$,'Tunnel Project',$,$,$,$,$,#4);
+#3=IFCPROJECT('2mYFepbeb1iu1XSJamqX$e',$,'Tunnel Project',$,$,$,$,$,#4);
 #4=IFCUNITASSIGNMENT((#5,#6,#7));
 #5=IFCSIUNIT($,.LENGTHUNIT.,$,.METRE.);
 #6=IFCSIUNIT($,.AREAUNIT.,$,.SQUARE_METRE.);
 #7=IFCSIUNIT($,.VOLUMEUNIT.,$,.CUBIC_METRE.);
-#8=IFCSITE('3pwJWah4jAeAo5efs_YCVa',$,$,'Site for a simple tunnel.',$,$,$,$,$,$,$,$,$,$);
+#8=IFCSITE('3pwJWah4jAeAo5efs_YCVa',$,'Tunnel site','Site for a simple tunnel.',$,$,$,$,$,$,$,$,$,$);
 #9=IFCCARTESIANPOINT((0.000000000,0.000000000,0.000000000));
 #10=IFCAXIS2PLACEMENT3D(#9,$,$);
 #11=IFCLOCALPLACEMENT($,#10);
 #12=IFCPERSON($,'Julian Amann',$,$,$,$,$,$);
 #13=IFCPERSONANDORGANIZATION(#12,#1,$);
 #14=IFCOWNERHISTORY(#13,#2,$,.NOCHANGE.,$,$,$,0);
-#15=IFCBUILDING('2vtJlrL3r2hhHlPS41Blc$',#14,'Tunnel Building',$,$,#11,$,$,.ELEMENT.,$,$,$);
+
+
+#15 = IFCPROXY('2vtJlrL3r2hhHlPS41Blc$', #14, 'IfcTunnel', $, $, #11, $, .NOTDEFINED., 'IfcTunnel');
+#50001 = IFCPROXY('13h_inP9b9oRkkjMD6Trmq', #14, 'IfcTunnelPart', $, $, #11, $, .NOTDEFINED., 'IfcTunnelPart');
+#50000 = IFCPROXY('1g4D$Nt$f3XRCzKl_wEG2u', #14, 'IfcFullTunnelSpace', $, $, #11, #26, .NOTDEFINED., 'IfcFullTunnelSpace');
+
+#50002 = IFCRELAGGREGATES('350aYXg9j8U9W2TQMxTKwf', #14, $, $, #3, (#8));
+#50003 = IFCRELAGGREGATES('3Dgkk9bnD798sWVYtLWK5m', #14, $, $, #8, (#15));
+#50004 = IFCRELAGGREGATES('0Fv8ZUrD18XhI3SWHWlc$W', #14, $, $, #15, (#50001));
+#50005 = IFCRELAGGREGATES('0Fv8ZUrD18XhI3SWHWlc$O', #14, $, $, #50001, (#50000));
 
 #24=IFCGEOMETRICREPRESENTATIONCONTEXT($,'Model',3,$,#10,$);
 #25=IFCSHAPEREPRESENTATION(#24,'test','Brep',(#30137));
 #26=IFCPRODUCTDEFINITIONSHAPE($,$,(#25));
-#27=IFCSLAB('0owfG0PC52c9DqNAATKob_',#14,'Tunnel',$,$,$,#26,$,.ROOF.);
 
 
 #4000=IFCCARTESIANPOINT((100.253,-32.4923,2.15579));
