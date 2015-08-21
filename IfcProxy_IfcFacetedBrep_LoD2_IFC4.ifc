@@ -16,7 +16,7 @@ FILE_NAME(
 	'OpenInfraPlatform IFC Tunnel generator',
 	'reference file created for the IFC Tunnel specification');
 /* NOTE schema name to be replaced with 'IFC4' after the final release  ------------------------ */
-FILE_SCHEMA(('IFC4'));
+FILE_SCHEMA(('IFC5'));
 ENDSEC;
 
 DATA;
